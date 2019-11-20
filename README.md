@@ -18,6 +18,10 @@ This fork version use "API Token" for Cloudflare authorization instead of "Globa
 certbot renew --manual-auth-hook="/path/to/cloned/repo/cloudflare-update-dns.sh" --manual-cleanup-hook="/path/to/cloned/repo/cloudflare-clean-dns.sh" --post-hook="systemctl reload nginx" >> /path/to/log/crontab.renew.log
 ```
 
+```bash
+certbot certonly --manual -d example.com --preferred-challenges dns --manual-auth-hook="/path/to/cloned/repo/cloudflare-update-dns.sh" --manual-cleanup-hook="/path/to/cloned/repo/cloudflare-clean-dns.sh" >> /path/to/log/crontab.renew.log
+```
+
 ## Example
 
 ```bash
