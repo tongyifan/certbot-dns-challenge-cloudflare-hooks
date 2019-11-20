@@ -13,7 +13,7 @@ echo "ZONE: ${CLOUDFLARE_ZONE}"
 ADD_RECORD_RESULT=$(curl -X POST "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE}/dns_records" \
      -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
      -H "Content-Type: application/json" \
-     --data "{\"type\":\"TXT\",\"name\":\"_acme-challenge\",\"content\":\"${CERTBOT_VALIDATION}\", \"ttl\": 120}" -s | jq -r "[.success, .errors[].message] | @csv")
+     --data "{\"type\":\"TXT\",\"name\":\"${CHALLENGE_DOMAIN}\",\"content\":\"${CERTBOT_VALIDATION}\", \"ttl\": 120}" -s | jq -r "[.success, .errors[].message] | @csv")
 
 echo "Add record result: ${ADD_RECORD_RESULT}"
 
