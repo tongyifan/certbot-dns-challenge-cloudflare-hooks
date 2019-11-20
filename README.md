@@ -4,11 +4,13 @@ Simple scripts I use to auto renew my Let's encrypt wildcard SSL cert.
 
 But use [acme.sh](https://github.com/Neilpang/acme.sh) is always recommended.
 
+This fork version use "API Token" for Cloudflare authorization instead of "Global API Key".
+
 ## Usage
 
 - Apply for a certificate use `certbot` and `dns-01` challenge
 - Download this repo
-- open `config.sh` of this repo, fill the `CLOUDFLARE_KEY` and `CLOUDFLARE_EMAIL` variables
+- open `config.sh` of this repo, fill the `CLOUDFLARE_API_TOKEN` variables
 - install `jq` package from your system package manager (apt, yum, etc)
 - Add a crontab job (as root) as bellow:
 
